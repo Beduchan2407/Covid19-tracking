@@ -26,18 +26,6 @@ spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3n.secret.key", AWS_SECRE
 spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3ai.endpoint", "s3.amazonaws.com")
 spark.sparkContext._jsc.hadoopConfiguration().set("fs.s3n.endpoint", "s3.amazonaws.com")
 
-schema = StructType([
-    StructField("county", StringType()),
-    StructField("fips_code", IntegerType()),
-    StructField("state", StringType()),
-    StructField("date", DateType()),
-    StructField("total_population", IntegerType()),
-    StructField("cumulative_cases", IntegerType()),
-    StructField("cumulative_deaths", IntegerType()),
-    StructField("new_cases", IntegerType()),
-    StructField("new_deaths", IntegerType()),
-])
-
 # read file from local machine
 df = spark.read\
     .format("csv")\
