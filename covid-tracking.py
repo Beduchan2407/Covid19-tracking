@@ -1,5 +1,5 @@
 from datetime import datetime
-from airflow.models import DAG, variable
+from airflow.models import DAG, Variable
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
@@ -9,6 +9,7 @@ from airflow.providers.http.sensors.http import HttpSensor
 # Load ID and KEY from airflow variable
 AWS_ACCESS_KEY_ID=Variable.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY=Variable.get('AWS_SECRET_ACCESS_KEY')
+COVID_DATA_LINK = Variable.get("COVID_DATA_LINK")
 
 with DAG(
         dag_id="covid_tracking",
@@ -36,7 +37,7 @@ with DAG(
     # download data
     data_download_task = BashOperator(
         task_id = "data_download",
-        bash_command= "python3 ../../home/minhhieu/airflow/dags/covid-track/python/data_download.py"
+        bash_command= f"python3 ../../home/minhhieu/airflow/dags/covid-track/python/data_download.py {COVID_DATA_LINK}"
     )
 
     # data ingestion
