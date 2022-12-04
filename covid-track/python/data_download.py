@@ -1,7 +1,8 @@
 import requests
 import os
+import sys
 
-URL = "https://download.data.world/s/iimgmyq5376dwhg27le7iy3tjubscc"
+URL = sys.argv[1]
 
 def down_load(url: str, dest_folder: str):
     if not os.path.exists(dest_folder):
