@@ -24,6 +24,6 @@ The process is as follows:
 4. The processed data will be used to upsert tables in data warehouse
 # Dashboard
 * The purpose of this dashboard is to update the number of cases or deaths day by day.
-![Dashboard](Image/covid-dashboard)
+![Dashboard](Image/covid-dashboard.png)
 
 
