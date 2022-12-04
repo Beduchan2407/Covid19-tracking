@@ -1,11 +1,12 @@
 from datetime import datetime
-from airflow.models import DAG, Variable
+from airflow.models import DAG, variable
 from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 from airflow.providers.http.sensors.http import HttpSensor
 
+# Load ID and KEY from airflow variable
 AWS_ACCESS_KEY_ID=Variable.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY=Variable.get('AWS_SECRET_ACCESS_KEY')
 
