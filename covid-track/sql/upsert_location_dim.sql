@@ -7,7 +7,7 @@ IGNOREHEADER 1
 credentials 'aws_iam_role=arn:aws:iam::424597550561:role/my-redshift-role'
 delimiter ',' region 'ap-southeast-1';
 
--- Upsert covid_daily_fact table
+-- Upsert location_dim table
 update dw.location_dim as DW
 set location_key = ST.location_key
 from staging.location_dim as ST
